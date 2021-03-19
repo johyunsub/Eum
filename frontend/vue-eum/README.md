@@ -2,23 +2,25 @@
 
 ## Project setup
 ```
+git clone {HTTPs url}
+```
+
+### change branch 
+```
+git checkout feature/frontend
+```
+
+### git pull
+```
+git pull origin feature/frontend
+```
+
+### package.json에 저장되어있는 dependencies 모듈들 설치
+```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 프로젝트 실행
 ```
 yarn serve
 ```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
