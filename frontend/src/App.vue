@@ -1,28 +1,26 @@
 <template>
-  <div id="app">
-    <Header />
-    <h1>{{ currentPath }}</h1>
-    <div id="content" class="content">
-      <router-view></router-view>
-    </div>
-  </div>
+  <v-app>
+    <Header v-if="homePath != 'Home'" />
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
 import Header from "./components/layout/Header.vue";
 
 export default {
+  components: { Header },
   name: "App",
-  components: {
-    Header,
-  },
+
+  data: () => ({
+    //
+  }),
   computed: {
-    currentPath() {
-      return this.$router.path;
+    homePath() {
+      return this.$route.name;
     },
   },
 };
 </script>
-
-<style>
-</style>
