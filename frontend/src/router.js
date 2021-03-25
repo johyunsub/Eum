@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from './views/Home';
-import Dogs from './views/Dogs';
-import Dbti from './views/Dbti';
+import Dogs from './views/DogsPage';
+import Dbti from './views/DbtiPage';
 
 Vue.use(VueRouter);
 
