@@ -1,0 +1,4 @@
+model_checkpoint_path: "\\tensorflow-dataset(classification)\\train_inception_v1_dog_FineTune_logs_new\\all\\model.ckpt-500"
+all_model_checkpoint_paths: "\\tensorflow-dataset(classification)\\train_inception_v1_dog_FineTune_logs_new\\all\\model.ckpt-0"
+all_model_checkpoint_paths: "\\tensorflow-dataset(classification)\\train_inception_v1_dog_FineTune_logs_new\\all\\model.ckpt-452"
+all_model_checkpoint_paths: "\\tensorflow-dataset(classification)\\train_inception_v1_dog_FineTune_logs_new\\all\\model.ckpt-500"
