@@ -8,146 +8,14 @@
     </div>
     <v-container fluid>
       <v-row dense>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="../assets/Dogs/BeeShong1.png" height="150px"> </v-img>
+        <v-col v-for="card in cards" :key="card.title" :cols="6">
+          <v-card elevation="1" @click="MovePage(card.title)">
+            <v-img :src="card.src" height="150px"> </v-img>
             <v-card-actions>
-              <v-card-text>비숑</v-card-text>
+              <v-card-text v-text="card.title"></v-card-text>
               <v-spacer></v-spacer>
               <v-btn icon>
                 <v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="@/assets/Dogs/SeeChu1.jpg" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text>시츄</v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon
-                ><v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="@/assets/Dogs/GoldRe1.png" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text>골드리트리버</v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon
-                ><v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="@/assets/Dogs/YoKeShuter1.png" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text>요크셔테리어</v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon
-                ><v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="../assets/Dogs/WelCi1.png" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text>웰시코기</v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon>
-                <v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="@/assets/Dogs/MalTeez1.png" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text>말티즈</v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon
-                ><v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="@/assets/Dogs/PuDle1.png" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text>푸들</v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon
-                ><v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="@/assets/Dogs/BulDok1.png" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text>불독</v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon
-                ><v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="@/assets/Dogs/PoMe1.png" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text>포메라니안</v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon
-                ><v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="@/assets/Dogs/BoDer1.png" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text>보더콜리</v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon
-                ><v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="@/assets/Dogs/SiBa1.png" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text>시바</v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon
-                ><v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-        <v-col cols="6">
-          <v-card elevation="1">
-            <v-img src="@/assets/Dogs/etc.jpg" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text>기타</v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon
-                ><v-icon style="color: #ff5252">mdi-heart</v-icon>
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -157,20 +25,35 @@
   </v-container>
 </template>
 <script>
+import Dogs from "../assets/Dogs";
+
 export default {
   data: () => ({
     cards: [
-      {
-        title: "비숑2",
-        flex: 6,
-      },
-      {
-        title: "포메라니안",
-        src: "@/assets/Dogs/PoMe.png",
-        flex: 6,
-      },
+      { title: "비숑", src: Dogs.BeeShong1, url: "" },
+      { title: "시츄", src: Dogs.SeeChu1 },
+      { title: "골드리트리버", src: Dogs.GoldRe1 },
+      { title: "요크셔테리어", src: Dogs.YoKeShuter1 },
+      { title: "웰시코기", src: Dogs.WelCi1 },
+      { title: "말티즈", src: Dogs.MalTeez1 },
+      { title: "푸들", src: Dogs.PuDle1 },
+      { title: "불독", src: Dogs.BulDok1 },
+      { title: "포메라니언", src: Dogs.PoMe1 },
+      { title: "보더콜리", src: Dogs.BoDer1 },
+      { title: "시바", src: Dogs.SiBa1 },
+      { title: "기타", src: Dogs.etc },
     ],
   }),
+  methods: {
+    MovePage: function(check) {
+      switch(check) { 
+        case "비숑":
+          this.$router.push({name: "" });
+          break;
+      }
+
+    }
+  }
 };
 </script>
 <style lang="scss">
