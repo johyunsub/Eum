@@ -4,6 +4,10 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>이음</v-toolbar-title>
+      <v-spacer />
+      <v-app-bar-nav-icon @click="movePage">
+        <font-awesome-icon icon="undo-alt" size="lg" />
+      </v-app-bar-nav-icon>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>
@@ -37,8 +41,13 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "hearder", //이 컴포넌트의 이름 지정
+  computed: {
+    ...mapState(["curPage"]),
+  },
   data: () => ({
     drawer: false,
     group: null,
@@ -47,6 +56,24 @@ export default {
   watch: {
     group() {
       this.drawer = false;
+    },
+  },
+  methods: {
+    movePage() {
+      switch (this.curPage) {
+        case "DogsPage":
+          this.$router.push({ name: "Home" });
+          break;
+        case "DogListPage":
+          this.$router.push({ name: "dogs" });
+          break;
+        case "DogDetailPage":
+          this.$router.push({ name: "dogList" });
+          break;
+        case "Dbti":
+          this.$router.push({ name: "Home" });
+          break;
+      }
     },
   },
 };

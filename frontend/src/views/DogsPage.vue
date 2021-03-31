@@ -2,9 +2,7 @@
   <v-container>
     <div class="ma-3">
       <h1 style="color: #005086">품종 선택</h1>
-      <subtitle-1 style="color: #ff5252"
-        >*입양하실 품종을 선택해주세요</subtitle-1
-      >
+      <p style="color: #ff5252">*입양하실 품종을 선택해주세요</p>
     </div>
     <v-container fluid>
       <v-row dense>
@@ -45,15 +43,14 @@ export default {
     ],
   }),
   methods: {
-    MovePage: function(check) {
-      switch(check) { 
-        case "비숑":
-          this.$router.push({name: "" });
-          break;
-      }
-
-    }
-  }
+    MovePage: function (kind) {
+      this.$router.push({ name: "dogList" });
+      this.$store.commit("SET_KIND", kind);
+    },
+  },
+  created() {
+    this.$store.commit("SET_CURPAGE", "DogsPage");
+  },
 };
 </script>
 <style lang="scss">

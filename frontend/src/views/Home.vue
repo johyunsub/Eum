@@ -22,6 +22,9 @@
 <script>
 export default {
   name: "Home",
+  created() {
+    this.$store.commit("SET_CURPAGE", "Home");
+  },
 };
 </script>
 <style>
