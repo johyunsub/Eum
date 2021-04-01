@@ -1,8 +1,10 @@
 <template>
   <div>
-    <h1>Dogs Page</h1>
+    <h1>Dbti Page</h1>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  
+};
 </script>
