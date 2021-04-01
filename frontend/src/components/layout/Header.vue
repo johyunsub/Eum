@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar color="#318fb5" dark>
+    <v-app-bar color="#ff8c94" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
       <v-toolbar-title>이음</v-toolbar-title>
@@ -13,7 +13,7 @@
       <v-list nav dense>
         <v-list-item-group
           v-model="group"
-          active-class="deep-purple--text text--accent-4"
+          active-class="pink--text text--accent-4"
         >
           <v-list-item :to="'/'">
             <v-list-item-icon>

@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div class="ma-3">
-      <h1 style="color: #005086">품종 선택</h1>
+      <h1 style="color: #494949">품종 선택</h1>
       <p style="color: #ff5252">*입양하실 품종을 선택해주세요</p>
     </div>
     <v-container fluid>
@@ -24,28 +24,33 @@
 </template>
 <script>
 import Dogs from "../assets/Dogs";
+import { mapActions } from "vuex";
 
 export default {
   data: () => ({
     cards: [
-      { title: "비숑", src: Dogs.BeeShong1, url: "" },
-      { title: "시츄", src: Dogs.SeeChu1 },
-      { title: "골드리트리버", src: Dogs.GoldRe1 },
-      { title: "요크셔테리어", src: Dogs.YoKeShuter1 },
-      { title: "웰시코기", src: Dogs.WelCi1 },
-      { title: "말티즈", src: Dogs.MalTeez1 },
-      { title: "푸들", src: Dogs.PuDle1 },
-      { title: "불독", src: Dogs.BulDok1 },
-      { title: "포메라니언", src: Dogs.PoMe1 },
-      { title: "보더콜리", src: Dogs.BoDer1 },
-      { title: "시바", src: Dogs.SiBa1 },
-      { title: "기타", src: Dogs.etc },
+      { title: "비숑", src: Dogs.비숑, url: "" },
+      { title: "시츄", src: Dogs.시추 },
+      { title: "골드리트리버", src: Dogs.골든리트리버 },
+      { title: "요크셔테리어", src: Dogs.요크셔터리아 },
+      { title: "웰시코기", src: Dogs.웰시코기 },
+      { title: "말티즈", src: Dogs.말티즈 },
+      { title: "푸들", src: Dogs.푸들 },
+      { title: "불독", src: Dogs.불독 },
+      { title: "포메라니언", src: Dogs.포메 },
+      { title: "보더콜리", src: Dogs.보더콜리 },
+      { title: "치와와", src: Dogs.치와와 },
+      { title: "진도", src: Dogs.진돗개 },
+      { title: "시바", src: Dogs.시바 },
+      { title: "기타", src: Dogs.기타 },
     ],
   }),
   methods: {
-    MovePage: function (kind) {
+    ...mapActions(["dogsData"]),
+    MovePage: function (breed) {
+      this.dogsData(breed); //해당 카드를 클릭할때 vuex에 품종에 따른 강아지데이터 저장
       this.$router.push({ name: "dogList" });
-      this.$store.commit("SET_KIND", kind);
+      this.$store.commit("SET_BREED", breed);
     },
   },
   created() {
