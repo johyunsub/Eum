@@ -1,6 +1,7 @@
 <template>
   <v-container>
-    <h1>유기견상세페이지</h1>
+    <h1 style="color: #494949">우리 아이는</h1>
+
     <maching-chart />
   </v-container>
 </template>

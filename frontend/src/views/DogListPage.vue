@@ -1,11 +1,10 @@
 <template>
   <v-container>
-    <h1>센터 아이들</h1>
+    <h1 style="color: #494949">센터 아이들</h1>
     <p>{{ breed }}</p>
     <v-col v-for="card in dogs" :key="card.no" :cols="12">
       <v-card elevation="0" @click="movePage(card.no)">
         <v-img src="../assets/Dogs/비숑.png" height="150px">
-          {{}}살
           <font-awesome-icon
             v-if="card.sex == '남아'"
             icon="mars"
@@ -61,4 +60,7 @@ export default {
 </script>
 
 <style>
+.h1 {
+  color: #494949;
+}
 </style>
