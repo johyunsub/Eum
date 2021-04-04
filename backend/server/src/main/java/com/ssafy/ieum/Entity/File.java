@@ -16,17 +16,20 @@ public class File {
     @Id
     @GeneratedValue
     private String id;
-    @Column(nullable = false)
-    private String path;
-    @Column(name ="origin_name",nullable = false )
-    private String originName;
-    @Column(name ="system_name",nullable = false)
-    private String systemName;
+
     @Column(columnDefinition = "float default 0.0")
     private String size;
+
     @Column(nullable = false)
     private String type;
 
-    @Transient
-    private byte[] imageBytes;
+    @Column(name ="origin_name",nullable = false )
+    private String originName;
+
+
+
+
+
+    @Column
+    private byte[] image;
 }

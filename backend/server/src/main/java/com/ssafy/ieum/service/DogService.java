@@ -12,9 +12,11 @@ import java.util.List;
 public interface DogService {
     List<Doginfo> getalldog(Integer page, Integer size) throws IOException;
 
-    List<File> filesServe(List<String> fileIds) throws IOException;
+    List<File> filesServe(List<String> filleIds);
 
-    File fileServe(String fileId) throws IOException;
+//    List<File> filesServe(List<String> fileIds) throws IOException;
+
+//    File fileServe(String fileId) throws IOException;
 
     List<Doginfo> getDoginfosByBreed(String breedname, Integer page, Integer size) ;
 }
