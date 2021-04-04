@@ -2,8 +2,7 @@
   <div>
     <v-app-bar color="#ff8c94" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>이음</v-toolbar-title>
+      <v-toolbar-title @click="goHome"> 이음 </v-toolbar-title>
       <v-spacer />
       <v-app-bar-nav-icon @click="movePage">
         <font-awesome-icon icon="undo-alt" size="lg" />
@@ -59,6 +58,9 @@ export default {
     },
   },
   methods: {
+    goHome() {
+      this.$router.push({ name: "Home" });
+    },
     movePage() {
       switch (this.curPage) {
         case "DogsPage":
@@ -70,7 +72,7 @@ export default {
         case "DogDetailPage":
           this.$router.push({ name: "dogList" });
           break;
-        case "Dbti":
+        case "MDTI":
           this.$router.push({ name: "Home" });
           break;
       }

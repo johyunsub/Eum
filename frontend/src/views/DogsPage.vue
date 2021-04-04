@@ -29,7 +29,7 @@ import { mapActions } from "vuex";
 export default {
   data: () => ({
     cards: [
-      { title: "비숑", src: Dogs.비숑, url: "" },
+      { title: "비숑", src: Dogs.비숑 },
       { title: "시츄", src: Dogs.시추 },
       { title: "골드리트리버", src: Dogs.골든리트리버 },
       { title: "요크셔테리어", src: Dogs.요크셔터리아 },
@@ -48,7 +48,7 @@ export default {
   methods: {
     ...mapActions(["dogsData"]),
     MovePage: function (breed) {
-      this.dogsData(breed); //해당 카드를 클릭할때 vuex에 품종에 따른 강아지데이터 저장
+      //this.dogsData(breed); //해당 카드를 클릭할때 vuex에 품종에 따른 강아지데이터 저장
       this.$router.push({ name: "dogList" });
       this.$store.commit("SET_BREED", breed);
     },

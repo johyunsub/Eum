@@ -5,7 +5,9 @@ import store from "./store";
 import vuetify from './plugins/vuetify';
 
 import "@/fontAwesomeIcon.js"; // fontAwesomeIcon.js 불러옴
-
+import SequentialEntrance from "vue-sequential-entrance";
+import "vue-sequential-entrance/vue-sequential-entrance.css";
+Vue.use(SequentialEntrance);
 
 Vue.config.productionTip = false;
 
