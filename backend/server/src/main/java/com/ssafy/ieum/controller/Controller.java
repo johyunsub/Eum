@@ -35,7 +35,11 @@ public class Controller {
         System.out.println("getDoginfosByBreed");
         Response response;
         try {
-            response = new Response("success", "성공", dogService.getDoginfosByBreed(breedname,page,size));
+            if(breedname.equals("기타")){
+                response = new Response("success", "성공", dogService.getDoginfosByEctbreed(breedname,page,size));
+            }else{
+                response = new Response("success", "성공", dogService.getDoginfosByBreed(breedname,page,size));
+            }
         } catch(Exception e){
             return response = new Response("error"," 실패",e.getMessage());
         }
