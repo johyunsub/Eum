@@ -1,8 +1,9 @@
 <template>
-  <v-sheet>
-    <h2 @click="aa()">Q{{ idx + 1 }}. {{ question.question }}</h2>
+  <v-sheet class="pa-3 ma-5 my-5" shaped elevation="2" color="#fbf4f9">
+    <h1 class="mt-3" style="color: #ff4d4d">Q{{ idx + 1 }}.</h1>
+    <h2 class="mb-3" style="color: #ff8364">{{ question.question }}</h2>
     <v-img :src="QuestionImgSrc(idx)"> </v-img>
-    <v-list ref="list">
+    <v-list ref="list" class="my-5" color="#fbf4f9">
       <v-list-item-group active-class="pink--text">
         <template v-for="(item, index) in question.propositions">
           <v-list-item :key="item.id" @click="CheckAnswer(item.no)">
@@ -41,11 +42,6 @@ export default {
     question: Object,
     idx: Number,
   },
-  data: () => ({
-    duration: 700,
-    offset: -100,
-    easing: "easeInOutCubic",
-  }),
   computed: {
     ...mapState(["questions", "dogsMdti"]),
     target() {
@@ -53,9 +49,9 @@ export default {
     },
     options() {
       return {
-        duration: this.duration,
-        offset: this.offset,
-        easing: this.easing,
+        duration: 600,
+        offset: -200,
+        easing: "easeInOutCubic",
       };
     },
   },

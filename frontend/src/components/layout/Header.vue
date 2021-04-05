@@ -28,11 +28,11 @@
             <v-list-item-title>품종매칭</v-list-item-title>
           </v-list-item>
 
-          <v-list-item :to="'/dbti'">
+          <v-list-item :to="'/mdti'">
             <v-list-item-icon>
               <font-awesome-icon icon="feather-alt" size="lg" />
             </v-list-item-icon>
-            <v-list-item-title>DBTI</v-list-item-title>
+            <v-list-item-title>MDTI</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -72,8 +72,14 @@ export default {
         case "DogDetailPage":
           this.$router.push({ name: "dogList" });
           break;
-        case "MDTI":
+        case "MdtiStartPage":
           this.$router.push({ name: "Home" });
+          break;
+        case "MdtiPage":
+          this.$router.push({ name: "mdtiStart" });
+          break;
+        case "MdtiResultPage":
+          this.$router.push({ name: "mdti" });
           break;
       }
     },
