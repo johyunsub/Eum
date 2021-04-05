@@ -1,14 +1,14 @@
 <template>
   <div>
     <v-app-bar color="#ff8c94" dark>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="movePage">
+        <font-awesome-icon icon="chevron-left" size="lg" />
+      </v-app-bar-nav-icon>
       <v-toolbar-title @click="goHome"> 이음 </v-toolbar-title>
       <v-spacer />
-      <v-app-bar-nav-icon @click="movePage">
-        <font-awesome-icon icon="undo-alt" size="lg" />
-      </v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+    <v-navigation-drawer v-model="drawer" absolute temporary right>
       <v-list nav dense>
         <v-list-item-group
           v-model="group"
