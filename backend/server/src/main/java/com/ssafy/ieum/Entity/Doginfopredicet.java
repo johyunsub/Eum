@@ -10,6 +10,8 @@ import javax.persistence.*;
 public class Doginfopredicet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
+
     private String dogid;
 
     private String percent;
