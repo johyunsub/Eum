@@ -19,4 +19,6 @@ public interface DogService {
 //    File fileServe(String fileId) throws IOException;
 
     List<Doginfo> getDoginfosByBreed(String breedname, Integer page, Integer size) ;
+
+    List<Doginfo> getDoginfosByEctbreed(String breedname, Integer page, Integer size);
 }

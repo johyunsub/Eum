@@ -68,6 +68,24 @@ public class DogServiceImpl implements DogService {
     }
 
     @Override
+    public List<Doginfo> getDoginfosByEctbreed(String breedname, Integer page, Integer size) {
+        Page<Doginfo> data = doginfoRepository.findAllByEtc(PageRequest.of(page, size));
+        List<Doginfo> list = data.getContent();
+        for (Doginfo info : list) {
+            List<String> fileIds = new ArrayList<>();
+            for (Doginfoimage doginfoimage : info.getDoginfoimages()) {
+                fileIds.add(doginfoimage.getFileId());
+            }
+            info.setFiles(filesServe(fileIds));
+        }
+
+        for(Doginfo f: list){
+            System.out.println(f.getFiles().size()+f.getBreed());
+        }
+        return list;
+    }
+
+    @Override
     public List<File> filesServe(List<String> filleIds) {
         List<File> images = new ArrayList<>();
         for (String fileId : filleIds) {
