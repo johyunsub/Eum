@@ -8,7 +8,7 @@
       <v-spacer />
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" absolute temporary right>
+    <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>
         <v-list-item-group
           v-model="group"
@@ -28,7 +28,7 @@
             <v-list-item-title>품종매칭</v-list-item-title>
           </v-list-item>
 
-          <v-list-item :to="'/mdti'">
+          <v-list-item :to="'/mdtiStart'">
             <v-list-item-icon>
               <font-awesome-icon icon="feather-alt" size="lg" />
             </v-list-item-icon>
