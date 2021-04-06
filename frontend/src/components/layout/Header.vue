@@ -1,12 +1,12 @@
 <template>
   <div>
     <v-app-bar color="#ff8c94" dark>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="movePage">
+        <font-awesome-icon icon="chevron-left" size="lg" />
+      </v-app-bar-nav-icon>
       <v-toolbar-title @click="goHome"> 이음 </v-toolbar-title>
       <v-spacer />
-      <v-app-bar-nav-icon @click="movePage">
-        <font-awesome-icon icon="undo-alt" size="lg" />
-      </v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>
@@ -28,11 +28,11 @@
             <v-list-item-title>품종매칭</v-list-item-title>
           </v-list-item>
 
-          <v-list-item :to="'/dbti'">
+          <v-list-item :to="'/mdtiStart'">
             <v-list-item-icon>
               <font-awesome-icon icon="feather-alt" size="lg" />
             </v-list-item-icon>
-            <v-list-item-title>DBTI</v-list-item-title>
+            <v-list-item-title>MDTI</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
@@ -72,8 +72,14 @@ export default {
         case "DogDetailPage":
           this.$router.push({ name: "dogList" });
           break;
-        case "MDTI":
+        case "MdtiStartPage":
           this.$router.push({ name: "Home" });
+          break;
+        case "MdtiPage":
+          this.$router.push({ name: "mdtiStart" });
+          break;
+        case "MdtiResultPage":
+          this.$router.push({ name: "mdti" });
           break;
       }
     },

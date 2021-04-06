@@ -1,8 +1,17 @@
 <template>
-  <v-container>
-    <h1>나에게 맞는 반려견은</h1>
-    <h1>{{ mdtiResult.breed }}</h1>
-    <v-img :src="resultImg()"> </v-img>
+  <v-container fill-height class="MdtiResult">
+    <!-- <h1>{{ mdtiResult.breed }}</h1> -->
+    <!-- <h1>{{ mdtiResult.accuracy }}</h1> -->
+    <v-row class="resultImg">
+      <v-col align="center" cols="12">
+        <h1>{{ mdtiResult.breed }}</h1>
+      </v-col>
+      <v-img :src="resultImg()" height="300"> </v-img>
+      <v-col align="center" cols="12">
+        <h1>추천지수: {{ mdtiResult.accuracy }}</h1>
+      </v-col>
+    </v-row>
+    <v-row> </v-row>
   </v-container>
 </template>
 
@@ -49,4 +58,13 @@ export default {
 </script>
 
 <style>
+.MdtiResult {
+  background-image: url("../assets/MDTI/MDTI결과배경.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.resultImg {
+  position: absolute;
+  top: 170px;
+}
 </style>

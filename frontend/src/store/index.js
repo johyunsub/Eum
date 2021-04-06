@@ -73,41 +73,21 @@ export default new Vuex.Store({
               question: "우리집 반려견이 짖는 정도는...",
               propositions: [
                 { no: 41, props: "많이 짖지 않았으면 좋겠다", correct: false, accuracy: 0.99,},
-                {
-                  no: 42, 
-                  props: "많이 짖어도 훈련으로 극복할 수 있다.",
-                  correct: true,
-                  accuracy: 0.99,
-                },
+                { no: 42, props: "많이 짖어도 훈련으로 극복할 수 있다.", correct: true, accuracy: 0.99, },
               ],
             },
             {
               question: "가족이 집을 비우는 경우는...",
               propositions: [
-                {
-                  no: 51, 
-                  props: "가족이 집에 있는 경우가 많다.",
-                  correct: false,
-                  accuracy: 0.99,
-                },
+                { no: 51, props: "가족이 집에 있는 경우가 많다.", correct: false, accuracy: 0.99, },
                 { no: 52, props: "때때로 모두 집을 비운다.", correct: true, accuracy: 0.5 },
               ],
             },
             {
               question: "키우고 싶은 반려견의 이미지는...",
               propositions: [
-                {
-                  no: 61, 
-                  props: "인기 많은 품종 중 하나였으면",
-                  correct: true,
-                  accuracy: 0.99,
-                },
-                {
-                  no: 62, 
-                  props: "내가 좋다면 아무래도 상관없다.",
-                  correct: false,
-                  accuracy: 0.99,
-                },
+                { no: 61, props: "인기 많은 품종 중 하나였으면", correct: true, accuracy: 0.99, },
+                { no: 62, props: "내가 좋다면 아무래도 상관없다.", correct: false, accuracy: 0.99, },
               ],
             },
           ],
