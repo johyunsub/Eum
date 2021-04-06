@@ -1,9 +1,8 @@
 <template>
-  <v-container>
-    <h1>MDTI</h1>
+  <v-container fill-height class="Mdti">
     <div class="step-progress" :style="{ width: progress + '%' }"></div>
     <v-row justify="center" v-for="(question, idx) in questions" :key="idx">
-      <v-col cols="12" class="mb-16">
+      <v-col cols="12" class="my-16">
         <mdti-sheet :question="question" :idx="idx" />
       </v-col>
     </v-row>
@@ -34,7 +33,7 @@ export default {
     },
   },
   created() {
-    this.$store.commit("SET_CURPAGE", "MDTI");
+    this.$store.commit("SET_CURPAGE", "MdtiPage");
   },
 };
 </script>
@@ -43,5 +42,10 @@ export default {
 .step-progress {
   position: sticky;
   top: 10px;
+}
+.Mdti {
+  background-image: url("../assets/MDTI/MDTI배경.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 </style>

@@ -7,7 +7,7 @@
           >품종별<br />
           입양하기</v-btn
         >
-        <v-btn :to="'/mdti'" x-large color="#f2c6b4" class="mx-2"
+        <v-btn :to="'/mdtiStart'" x-large color="#f2c6b4" class="mx-2"
           >DBTI<br />
           작성하기</v-btn
         >
