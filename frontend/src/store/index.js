@@ -10,7 +10,10 @@ export default new Vuex.Store({
     state: {
         breed: '',   //품종에따른 강아지 페이지에서 사용되는 품종 정보 
         curPage: '',    //현재 위치하고 있는 페이지 정보 ( 페이지 이동간 사용 )
+        dogListIdx: 0, //품종매칭 리스트에서 몇번째 개정보를 상세페이지로 넘겨줄건지 Index
+        chartInfo: [],
         progress: 0,
+        mdtiValidCheck: [],
         myAnswers: [false, false, false, false, false, false],   //MDTI에서 작성한 나의 답안
         myAnswersAccuracy: [0, 0, 0, 0, 0, 0],  //MDTI에서 작성한 나의 답안과 모범답안의 차이의 수치
         dogsMdti: [     //MDTI에서 활용되는 품종에따른 질문에따른 답(Answer the Question)
@@ -53,6 +56,7 @@ export default new Vuex.Store({
                 { no: 12, props: "어느 정도 괜찮다", correct: true, accuracy: 0.8 },
                 { no: 13, props: "예민하다", correct: false, accuracy: 0.99 },
               ],
+              solved: false,
             },
             {
               question: "함께 살기에 적당한 반려견의 크기는...",
@@ -61,6 +65,7 @@ export default new Vuex.Store({
                 { no: 22, props: "10kg 안팎의 중형견", correct: false, accuracy: 0.7},
                 { no: 23, props: "15kg 이상 대형견", correct: true, accuracy: 0.99},
               ],
+              solved: false,
             },
             {
               question: "하루에 산책 가능한 시간은...",
@@ -68,6 +73,7 @@ export default new Vuex.Store({
                 { no: 31, props: "집 주변에서 가벼운 산책", correct: true, accuracy: 0.99 },
                 { no: 32, props: "2시간 이상 산책", correct: false, accuracy: 0.99 },
               ],
+              solved: false,
             },
             {
               question: "우리집 반려견이 짖는 정도는...",
@@ -75,6 +81,7 @@ export default new Vuex.Store({
                 { no: 41, props: "많이 짖지 않았으면 좋겠다", correct: false, accuracy: 0.99,},
                 { no: 42, props: "많이 짖어도 훈련으로 극복할 수 있다.", correct: true, accuracy: 0.99, },
               ],
+              solved: false,
             },
             {
               question: "가족이 집을 비우는 경우는...",
@@ -82,6 +89,7 @@ export default new Vuex.Store({
                 { no: 51, props: "가족이 집에 있는 경우가 많다.", correct: false, accuracy: 0.99, },
                 { no: 52, props: "때때로 모두 집을 비운다.", correct: true, accuracy: 0.5 },
               ],
+              solved: false,
             },
             {
               question: "키우고 싶은 반려견의 이미지는...",
@@ -89,146 +97,74 @@ export default new Vuex.Store({
                 { no: 61, props: "인기 많은 품종 중 하나였으면", correct: true, accuracy: 0.99, },
                 { no: 62, props: "내가 좋다면 아무래도 상관없다.", correct: false, accuracy: 0.99, },
               ],
+              solved: false,
             },
           ],
-        dogs: [     //서버로부터 받아온 유기견 데이터
-            {
-                breed: "비숑",
-                location: "대구",
-                url: "test1.com",
-                phone: "010-1111-1111",
-                datetime: "2012-12-12 00:00:00",
-                sex: "남아",
-                doginfopredicet: [
-                    {
-                        dogid: "4444",
-                        percent: "23",
-                        predictedBreed: "품종1"
-                    },
-                    {
-                        dogid: "4444",
-                        percent: "23",
-                        predictedBreed: "품종1"
-                    },
-                    {
-                        dogid: "4444",
-                        percent: "23",
-                        predictedBreed: "품종1"
-                    }
-                ],
-                doginfoimages: [
-                    {
-                        id: "6",
-                        dogid: "4444",
-                        fileId: "4"
-                    }
-                ],
-                files: [
-                    {
-                        id: "4",
-                        path: "C:\\Users\\sskim\\Downloads\\Dogs\\골든리트리버",
-                        originName: "리트리버",
-                        systemName: "골든리트리버_337379_04dffff6-87a4-11eb-a586-08d23e250ad9.jpg",
-                        size: "0",
-                        type: "jpg",
-                        imageBytes: ""
-                    },]
-            },
-            {
-                breed: "비숑",
-                location: "구미",
-                url: "test2.com",
-                phone: "010-2222-2222",
-                datetime: "2020-11-11 00:00:00",
-                sex: "남아",
-                doginfopredicet: [
-                    {
-                        dogid: "4444",
-                        percent: "23",
-                        predictedBreed: "품종1"
-                    },
-                    {
-                        dogid: "4444",
-                        percent: "23",
-                        predictedBreed: "품종1"
-                    },
-                    {
-                        dogid: "4444",
-                        percent: "23",
-                        predictedBreed: "품종1"
-                    }
-                ],
-                doginfoimages: [
-                    {
-                        id: "6",
-                        dogid: "4444",
-                        fileId: "4"
-                    }
-                ],
-                files: [
-                    {
-                        id: "4",
-                        path: "C:\\Users\\sskim\\Downloads\\Dogs\\골든리트리버",
-                        originName: "리트리버",
-                        systemName: "골든리트리버_337379_04dffff6-87a4-11eb-a586-08d23e250ad9.jpg",
-                        size: "0",
-                        type: "jpg",
-                        imageBytes: ""
-                    },]
-            },
-            {
-                breed: "믹스",
-                location: "부산",
-                url: "test3.com",
-                phone: "010-3333-3333",
-                datetime: "2021-03-31 00:00:00",
-                sex: "여아",
-                doginfopredicet: [
-                    {
-                        dogid: "4444",
-                        percent: "23",
-                        predictedBreed: "비숑"
-                    },
-                    {
-                        dogid: "4444",
-                        percent: "23",
-                        predictedBreed: "푸들"
-                    },
-                    {
-                        dogid: "4444",
-                        percent: "23",
-                        predictedBreed: "품종1"
-                    }
-                ],
-                doginfoimages: [
-                    {
-                        id: "6",
-                        dogid: "4444",
-                        fileId: "4"
-                    }
-                ],
-                files: [
-                    {
-                        id: "4",
-                        path: "C:\\Users\\sskim\\Downloads\\Dogs\\골든리트리버",
-                        originName: "리트리버",
-                        systemName: "골든리트리버_337379_04dffff6-87a4-11eb-a586-08d23e250ad9.jpg",
-                        size: "0",
-                        type: "jpg",
-                        imageBytes: ""
-                    },]
-            },
-        ],   
+        dogs: [],    //서버로부터 받아온 유기견 데이터
+        isError: '',
+            // {
+            //     breed: "비숑",
+            //     location: "대구",
+            //     url: "test1.com",
+            //     phone: "010-1111-1111",
+            //     datetime: "2012-12-12 00:00:00",
+            //     sex: "남아",
+            //     doginfopredicet: [
+            //         {
+            //             dogid: "4444",
+            //             percent: "23",
+            //             predictedBreed: "품종1"
+            //         },
+            //         {
+            //             dogid: "4444",
+            //             percent: "23",
+            //             predictedBreed: "품종1"
+            //         },
+            //         {
+            //             dogid: "4444",
+            //             percent: "23",
+            //             predictedBreed: "품종1"
+            //         }
+            //     ],
+            //     doginfoimages: [
+            //         {
+            //             id: "6",
+            //             dogid: "4444",
+            //             fileId: "4"
+            //         }
+            //     ],
+            //     files: [
+            //         {
+            //             id: "4",
+            //             path: "C:\\Users\\sskim\\Downloads\\Dogs\\골든리트리버",
+            //             originName: "리트리버",
+            //             systemName: "골든리트리버_337379_04dffff6-87a4-11eb-a586-08d23e250ad9.jpg",
+            //             size: "0",
+            //             type: "jpg",
+            //             imageBytes: ""
+            //         },]
+            // },
+        // ],   
     },
     mutations: {
         SET_BREED(state, data){
-            state.breed = data;
+          state.breed = data;
         },
         SET_CURPAGE(state, data){
-            state.curPage = data;
+          state.curPage = data;
+        },
+        SET_CHART_INFO(state, data){
+          for(var i=0, j=0; i<data.length; i++){
+              state.chartInfo[j++] =  data[i].doginfopredicet[0];
+              state.chartInfo[j++] =  data[i].doginfopredicet[1];
+              state.chartInfo[j++] =  data[i].doginfopredicet[2];
+          }
+        },
+        SET_DOG_LIST_IDX(state, data){
+          state.dogListIdx = data;
         },
         SET_DOGS(state, data){
-            state.dogs = data;
+          state.dogs = data;
         },
         SET_PROGRESS(state, data){
           state.progress += 100/data;
@@ -240,17 +176,24 @@ export default new Vuex.Store({
         SET_MDTI_RESULT(state, data){
           state.mdtiResult.breed = data.breed;
           state.mdtiResult.accuracy = data.accuracy;
+        },
+        SET_ERROR(state, data){
+          state.isError = data;
         }
+
     },
     actions: {
-        dogsData({state, commit}, breed) {
+        dogsData({ commit}, breed) {
             instance
-            .get(`/iuem/doginfo/breed/${breed}/0/1`)
+            .get(`/iuem/doginfo/breed/${breed}/0/8`)
             .then((res) => {
-                commit('SET_DOGS', res.data );
-                console.log(state.dogs);
+                commit('SET_DOGS', res.data.data );
+                commit('SET_CHART_INFO', res.data.data )
             })
-            .catch((err) => console.log(err.response));
+            .catch((err) => {
+              console.log( err.response);
+              commit('SET_ERROR', true);
+            });
         },
         calculateResult({state, commit}){
           var my_answers = state.myAnswers;
