@@ -1,28 +1,34 @@
 <template>
   <v-container>
     <h1 style="color: #494949">센터 아이들</h1>
-    <p>{{ breed }}</p>
+    <p style="color: #ff5252">*생김새가 {{ breed }}인 믹스견도 표시됩니다.</p>
     <v-col v-for="(card, idx) in dogs" :key="idx" :cols="12">
       <v-card elevation="0" @click="movePage(idx)">
-        <!-- <v-img :src="card.files[0].image" height="150px"> -->
-        <img
+        <v-img
           :src="`data:image/jpeg;base64,${card.files[0].image}`"
-          stretch="none"
-        />
-        <font-awesome-icon
-          v-if="card.sex == '남아' || card.sex == '한쌍'"
-          icon="mars"
-          size="lg"
-          style="color: #1e88e5"
-        />
-        <font-awesome-icon
-          v-if="card.sex == '여아' || card.sex == '한쌍'"
-          icon="venus"
-          size="lg"
-          style="color: #ff5252"
-        />
-        <!-- </v-img> -->
-        <v-card-title>{{ card.phone }}</v-card-title>
+          height="280"
+        >
+        </v-img>
+        <v-card-title class="">
+          <img src="../assets/icon/house.png" height="25" class="mx-1" />
+          {{ card.location }}
+          <img src="../assets/icon/breed.png" height="27" class="mx-1 ml-3" />
+          {{ card.breed }}
+          <font-awesome-icon
+            v-if="card.sex == '남아' || card.sex == '한쌍'"
+            icon="mars"
+            size="lg"
+            class="ml-2"
+            style="color: #1e88e5"
+          />
+          <font-awesome-icon
+            v-if="card.sex == '여아' || card.sex == '한쌍'"
+            icon="venus"
+            size="lg"
+            class="ml-2"
+            style="color: #ff5252"
+          />
+        </v-card-title>
       </v-card>
     </v-col>
   </v-container>

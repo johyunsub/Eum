@@ -21,6 +21,9 @@ export default {
   }),
   created() {
     this.$store.commit("SET_CURPAGE", "MdtiStartPage");
+    this.$store.state.myAnswers = [false, false, false, false, false, false];
+    this.$store.state.myAnswersAccuracy = [0, 0, 0, 0, 0, 0];
+    this.$store.state.progress = 0;
   },
 };
 </script>

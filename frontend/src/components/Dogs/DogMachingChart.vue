@@ -49,5 +49,6 @@ export default {
 .chartjs-render-monitor {
   height: 200px;
   text-align: center;
+  font-size: 30px;
 }
 </style>

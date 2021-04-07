@@ -32,7 +32,7 @@ export default {
       { title: "말티즈", src: Dogs.말티즈 },
       { title: "푸들", src: Dogs.푸들 },
       { title: "불독", src: Dogs.불독 },
-      { title: "포메라니언", src: Dogs.포메 },
+      { title: "포메라니안", src: Dogs.포메 },
       { title: "보더콜리", src: Dogs.보더콜리 },
       { title: "치와와", src: Dogs.치와와 },
       { title: "진도", src: Dogs.진돗개 },

@@ -1,7 +1,5 @@
 <template>
   <v-container fill-height class="MdtiResult">
-    <!-- <h1>{{ mdtiResult.breed }}</h1> -->
-    <!-- <h1>{{ mdtiResult.accuracy }}</h1> -->
     <v-row class="resultImg pa-3">
       <v-col align="center" cols="12">
         <h1>{{ mdtiResult.breed }}</h1>
@@ -10,6 +8,7 @@
       <v-col align="center" cols="12">
         <h1>추천지수: {{ mdtiResult.accuracy }}%</h1>
       </v-col>
+      <v-btn :to="'/mdtiStart'">다시하기</v-btn>
     </v-row>
     <v-row> </v-row>
   </v-container>
