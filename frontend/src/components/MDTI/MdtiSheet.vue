@@ -55,6 +55,9 @@ export default {
       };
     },
   },
+  data: () => ({
+    valid: false,
+  }),
   methods: {
     aa() {
       this.$vuetify.goTo(document.body.scrollTop);
@@ -73,6 +76,9 @@ export default {
         ans: answer,
         acc: accuracy,
       });
+    },
+    isValid() {
+      console.log("안녕");
     },
     QuestionImgSrc(idx) {
       switch (idx) {

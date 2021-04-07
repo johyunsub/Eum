@@ -11,10 +11,6 @@
             <v-img :src="card.src" height="150px"> </v-img>
             <v-card-actions>
               <v-card-text v-text="card.title"></v-card-text>
-              <v-spacer></v-spacer>
-              <v-btn icon>
-                <v-icon style="color: #ff5252">mdi-heart</v-icon>
-              </v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -24,14 +20,13 @@
 </template>
 <script>
 import Dogs from "../assets/Dogs";
-import { mapActions } from "vuex";
 
 export default {
   data: () => ({
     cards: [
       { title: "비숑", src: Dogs.비숑 },
       { title: "시츄", src: Dogs.시추 },
-      { title: "골드리트리버", src: Dogs.골든리트리버 },
+      { title: "골든리트리버", src: Dogs.골든리트리버 },
       { title: "요크셔테리어", src: Dogs.요크셔터리아 },
       { title: "웰시코기", src: Dogs.웰시코기 },
       { title: "말티즈", src: Dogs.말티즈 },
@@ -46,9 +41,7 @@ export default {
     ],
   }),
   methods: {
-    ...mapActions(["dogsData"]),
     MovePage: function (breed) {
-      //this.dogsData(breed); //해당 카드를 클릭할때 vuex에 품종에 따른 강아지데이터 저장
       this.$router.push({ name: "dogList" });
       this.$store.commit("SET_BREED", breed);
     },

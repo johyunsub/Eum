@@ -1,6 +1,10 @@
 <template>
   <v-container fill-height class="Mdti">
-    <div class="step-progress" :style="{ width: progress + '%' }"></div>
+    <!-- <div class="step-progress" :style="{ width: progress + '%' }"></div> -->
+    <v-progress-linear
+      class="step-progress"
+      :value="progress"
+    ></v-progress-linear>
     <v-row justify="center" v-for="(question, idx) in questions" :key="idx">
       <v-col cols="12" class="my-16">
         <mdti-sheet :question="question" :idx="idx" />

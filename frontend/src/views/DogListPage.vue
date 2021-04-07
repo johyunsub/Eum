@@ -2,22 +2,26 @@
   <v-container>
     <h1 style="color: #494949">센터 아이들</h1>
     <p>{{ breed }}</p>
-    <v-col v-for="card in dogs" :key="card.no" :cols="12">
-      <v-card elevation="0" @click="movePage(card.no)">
-        <v-img src="../assets/Dogs/비숑.png" height="150px">
-          <font-awesome-icon
-            v-if="card.sex == '남아'"
-            icon="mars"
-            size="lg"
-            style="color: #1e88e5"
-          />
-          <font-awesome-icon
-            v-if="card.sex == '여아'"
-            icon="venus"
-            size="lg"
-            style="color: #ff5252"
-          />
-        </v-img>
+    <v-col v-for="(card, idx) in dogs" :key="idx" :cols="12">
+      <v-card elevation="0" @click="movePage(idx)">
+        <!-- <v-img :src="card.files[0].image" height="150px"> -->
+        <img
+          :src="`data:image/jpeg;base64,${card.files[0].image}`"
+          stretch="none"
+        />
+        <font-awesome-icon
+          v-if="card.sex == '남아' || card.sex == '한쌍'"
+          icon="mars"
+          size="lg"
+          style="color: #1e88e5"
+        />
+        <font-awesome-icon
+          v-if="card.sex == '여아' || card.sex == '한쌍'"
+          icon="venus"
+          size="lg"
+          style="color: #ff5252"
+        />
+        <!-- </v-img> -->
         <v-card-title>{{ card.phone }}</v-card-title>
       </v-card>
     </v-col>
@@ -25,35 +29,28 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 export default {
   name: "DogList",
   computed: {
-    ...mapState(["breed", "dogs"]),
+    ...mapState(["breed", "dogs", "dogId", "imgUrl"]),
   },
-  data: () => ({
-    cards: [
-      {
-        no: 1,
-        title: "보리의 가족을 찾아요",
-        age: 1,
-        gender: "암",
-      },
-      {
-        no: 2,
-        title: "두리의 가족을 찾아요",
-        age: 3,
-        gender: "수",
-      },
-    ],
-  }),
+  data: () => ({}),
   methods: {
-    movePage: function (no) {
+    ...mapActions(["dogsData"]),
+
+    movePage: function (idx) {
+      this.$store.commit("SET_DOG_LIST_IDX", idx); //품종리스트의 몇번째인지 idx set
       this.$router.push({ name: "dogDetail" });
-      console.log(no);
+    },
+    converImg(data) {
+      var img = `data:/image/jpeg;base64, ${data}`;
+      console.log(img);
+      return img;
     },
   },
   created() {
+    this.dogsData(this.breed); //해당 카드를 클릭할때 vuex에 품종에 따른 강아지데이터 저장
     this.$store.commit("SET_CURPAGE", "DogListPage");
   },
 };

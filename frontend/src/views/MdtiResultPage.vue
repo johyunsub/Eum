@@ -2,13 +2,13 @@
   <v-container fill-height class="MdtiResult">
     <!-- <h1>{{ mdtiResult.breed }}</h1> -->
     <!-- <h1>{{ mdtiResult.accuracy }}</h1> -->
-    <v-row class="resultImg">
+    <v-row class="resultImg pa-3">
       <v-col align="center" cols="12">
         <h1>{{ mdtiResult.breed }}</h1>
       </v-col>
-      <v-img :src="resultImg()" height="300"> </v-img>
+      <v-img :src="resultImg()" height="300" max-width="350"> </v-img>
       <v-col align="center" cols="12">
-        <h1>추천지수: {{ mdtiResult.accuracy }}</h1>
+        <h1>추천지수: {{ mdtiResult.accuracy }}%</h1>
       </v-col>
     </v-row>
     <v-row> </v-row>
