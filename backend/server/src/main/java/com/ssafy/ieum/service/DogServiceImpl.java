@@ -94,6 +94,7 @@ public class DogServiceImpl implements DogService {
 
         for(File f : images){
             System.out.println( f.getId()+" "+f.getOriginName());
+            System.out.println(f.getImage());
         }
 
         return images;

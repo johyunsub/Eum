@@ -31,5 +31,5 @@ public class File {
 
 
     @Column
-    private byte[] image;
+    private String image;
 }
