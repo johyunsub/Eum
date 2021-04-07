@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.ssafy'
-version = '20120405-ieum-1.2'
+version = '20120407-ieum-1.2'
 sourceCompatibility = '1.8'
 
 configurations {
