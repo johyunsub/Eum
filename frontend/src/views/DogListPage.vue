@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <!-- <v-overlay :value="overlay"></v-overlay> -->
-    <v-progress-circular indeterminate color="primary"></v-progress-circular>
+    <!-- <v-progress-circular indeterminate color="primary"></v-progress-circular> -->
     <h1 style="color: #494949">센터 아이들</h1>
     <p style="color: #ff5252">*생김새가 {{ breed }}인 믹스견도 표시됩니다.</p>
     <v-col v-for="(card, idx) in dogs" :key="idx" :cols="12">

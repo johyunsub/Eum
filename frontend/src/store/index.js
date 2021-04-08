@@ -142,7 +142,7 @@ export default new Vuex.Store({
     actions: {
         dogsData({ commit}, breed) {
             instance
-            .get(`/iuem/doginfo/breed/${breed}/0/4`)
+            .get(`/iuem/doginfo/breed/${breed}/0/7`)
             .then((res) => {
                 commit('SET_DOGS', res.data.data );
                 commit('SET_CHART_INFO', res.data.data )
