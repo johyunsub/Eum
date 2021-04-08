@@ -53,50 +53,50 @@ export default new Vuex.Store({
             {
               question: "반려견의 털이 빠진다면...",
               propositions: [
-                { no: 11, props: "상관없다", correct: true, accuracy: 0.99 },
-                { no: 12, props: "어느 정도 괜찮다", correct: true, accuracy: 0.8 },
-                { no: 13, props: "예민하다", correct: false, accuracy: 0.99 },
+                { no: 11, props: "상관없다", correct: true, accuracy: 0.93 },
+                { no: 12, props: "어느 정도 괜찮다", correct: true, accuracy: 0.81 },
+                { no: 13, props: "예민하다", correct: false, accuracy: 0.93 },
               ],
               solved: false,
             },
             {
               question: "함께 살기에 적당한 반려견의 크기는...",
               propositions: [
-                { no: 21, props: "5kg 이하 소형견", correct: false, accuracy: 0.99},
-                { no: 22, props: "10kg 안팎의 중형견", correct: false, accuracy: 0.7},
-                { no: 23, props: "15kg 이상 대형견", correct: true, accuracy: 0.99},
+                { no: 21, props: "5kg 이하 소형견", correct: false, accuracy: 0.93},
+                { no: 22, props: "10kg 안팎의 중형견", correct: false, accuracy: 0.71},
+                { no: 23, props: "15kg 이상 대형견", correct: true, accuracy: 0.93},
               ],
               solved: false,
             },
             {
               question: "하루에 산책 가능한 시간은...",
               propositions: [
-                { no: 31, props: "집 주변에서 가벼운 산책", correct: true, accuracy: 0.99 },
-                { no: 32, props: "2시간 이상 산책", correct: false, accuracy: 0.99 },
+                { no: 31, props: "집 주변에서 가벼운 산책", correct: true, accuracy: 0.93 },
+                { no: 32, props: "2시간 이상 산책", correct: false, accuracy: 0.93 },
               ],
               solved: false,
             },
             {
               question: "우리집 반려견이 짖는 정도는...",
               propositions: [
-                { no: 41, props: "많이 짖지 않았으면 좋겠다", correct: false, accuracy: 0.99,},
-                { no: 42, props: "많이 짖어도 훈련으로 극복할 수 있다.", correct: true, accuracy: 0.99, },
+                { no: 41, props: "많이 짖지 않았으면 좋겠다", correct: false, accuracy: 0.93,},
+                { no: 42, props: "많이 짖어도 훈련으로 극복할 수 있다.", correct: true, accuracy: 0.93, },
               ],
               solved: false,
             },
             {
               question: "가족이 집을 비우는 경우는...",
               propositions: [
-                { no: 51, props: "가족이 집에 있는 경우가 많다.", correct: false, accuracy: 0.99, },
-                { no: 52, props: "때때로 모두 집을 비운다.", correct: true, accuracy: 0.5 },
+                { no: 51, props: "가족이 집에 있는 경우가 많다.", correct: false, accuracy: 0.93, },
+                { no: 52, props: "때때로 모두 집을 비운다.", correct: true, accuracy: 0.55 },
               ],
               solved: false,
             },
             {
               question: "키우고 싶은 반려견의 이미지는...",
               propositions: [
-                { no: 61, props: "인기 많은 품종 중 하나였으면", correct: true, accuracy: 0.99, },
-                { no: 62, props: "내가 좋다면 아무래도 상관없다.", correct: false, accuracy: 0.99, },
+                { no: 61, props: "인기 많은 품종 중 하나였으면", correct: true, accuracy: 0.93, },
+                { no: 62, props: "내가 좋다면 아무래도 상관없다.", correct: false, accuracy: 0.93, },
               ],
               solved: false,
             },
@@ -130,6 +130,11 @@ export default new Vuex.Store({
           state.myAnswers[data.qn] = data.ans;
           state.myAnswersAccuracy[data.qn] = data.acc;
         },
+        INIT_SCORE_BOARD(state, data) {
+          for(var i=0; i<state.mdtiScoreboard.length; i++){
+            state.mdtiScoreboard[i].score = data;
+          }
+        },
         SET_MDTI_RESULT(state, data){
           state.mdtiResult.breed = data.breed;
           state.mdtiResult.accuracy = data.accuracy;
@@ -160,6 +165,8 @@ export default new Vuex.Store({
           for(var i = 0; i < my_answers.length; i++ ){
             for(var j = 0; j < dogs_mdti.length; j++ ){
               if(!(my_answers[i] ^ dogs_mdti[j].AtQ[i])){
+                console.log(my_answers[i] + "    "+ dogs_mdti[j].AtQ[i])
+                console.log(mdti_score_board[j].breed)
                 mdti_score_board[j].score++;
               }
             }
