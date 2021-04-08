@@ -25,6 +25,7 @@ export default {
     this.$store.state.myAnswers = [false, false, false, false, false, false];
     this.$store.state.myAnswersAccuracy = [0, 0, 0, 0, 0, 0];
     this.$store.state.progress = 0;
+    this.$store.commit("INIT_SCORE_BOARD", 0);
   },
 };
 </script>
