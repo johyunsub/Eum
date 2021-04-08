@@ -55,17 +55,14 @@ export default {
       };
     },
   },
-  data: () => ({
-    valid: false,
-  }),
   methods: {
-    aa() {
-      this.$vuetify.goTo(document.body.scrollTop);
-    },
+    // goTop() {
+    //   this.$vuetify.goTo(document.body.scrollTop);
+    // },
     CheckAnswer(no) {
       this.$vuetify.goTo(this.target, this.options);
-
       this.$store.commit("SET_PROGRESS", this.questions.length);
+
       const questionNo = parseInt(no / 10) - 1;
       const PropsNo = (no % 10) - 1;
       var answer = this.questions[questionNo].propositions[PropsNo].correct;
@@ -76,9 +73,6 @@ export default {
         ans: answer,
         acc: accuracy,
       });
-    },
-    isValid() {
-      console.log("안녕");
     },
     QuestionImgSrc(idx) {
       switch (idx) {

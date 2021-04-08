@@ -14,7 +14,7 @@
     </v-row>
     <v-row>
       <v-col align="center">
-        <v-btn @click="calResult" x-large color="#f1d1d1" class="mb-3">
+        <v-btn @click="calResult" x-large color="#f1d1d1" class="pa-8 mb-10">
           결과보기
         </v-btn>
       </v-col>

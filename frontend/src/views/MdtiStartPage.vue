@@ -15,17 +15,14 @@
 </template>
 
 <script>
-// import mainImg from "../assets/MDTI/MDTI시작배경4.png";
 export default {
-  data: () => ({
-    // mainImg,
-  }),
+  data: () => ({}),
   created() {
     this.$store.commit("SET_CURPAGE", "MdtiStartPage");
     this.$store.state.myAnswers = [false, false, false, false, false, false];
     this.$store.state.myAnswersAccuracy = [0, 0, 0, 0, 0, 0];
     this.$store.state.progress = 0;
-    this.$store.commit("INIT_SCORE_BOARD", 0);
+    this.$store.commit("INIT_SCORE_BOARD");
   },
 };
 </script>

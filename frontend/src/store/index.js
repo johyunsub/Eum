@@ -8,13 +8,13 @@ const instance = createInstance();
 
 export default new Vuex.Store({
     state: {
+        dialogOn: true,
         breed: '',   //품종에따른 강아지 페이지에서 사용되는 품종 정보 
         dogs: [],    //서버로부터 받아온 유기견 데이터
         curPage: '',    //현재 위치하고 있는 페이지 정보 ( 페이지 이동간 사용 )
         dogListIdx: 0, //품종매칭 리스트에서 몇번째 개정보를 상세페이지로 넘겨줄건지 Index
         chartInfo: [],
         progress: 0,
-        mdtiValidCheck: [],
         myAnswers: [false, false, false, false, false, false],   //MDTI에서 작성한 나의 답안
         myAnswersAccuracy: [0, 0, 0, 0, 0, 0],  //MDTI에서 작성한 나의 답안과 모범답안의 차이의 수치
         dogsMdti: [     //MDTI에서 활용되는 품종에따른 질문에따른 답(Answer the Question)
@@ -80,7 +80,7 @@ export default new Vuex.Store({
               question: "우리집 반려견이 짖는 정도는...",
               propositions: [
                 { no: 41, props: "많이 짖지 않았으면 좋겠다", correct: false, accuracy: 0.93,},
-                { no: 42, props: "많이 짖어도 훈련으로 극복할 수 있다.", correct: true, accuracy: 0.93, },
+                { no: 42, props: "짖음 훈련으로 극복 가능하다", correct: true, accuracy: 0.93, },
               ],
               solved: false,
             },
@@ -130,19 +130,27 @@ export default new Vuex.Store({
           state.myAnswers[data.qn] = data.ans;
           state.myAnswersAccuracy[data.qn] = data.acc;
         },
-        INIT_SCORE_BOARD(state, data) {
-          for(var i=0; i<state.mdtiScoreboard.length; i++){
-            state.mdtiScoreboard[i].score = data;
-          }
+        INIT_SCORE_BOARD(state) {
+          state.mdtiScoreboard = [  
+            {breed: "비숑", score: 0},
+            {breed: "시츄", score: 0},
+            {breed: "골든리트리버", score: 0},
+            {breed: "요크셔테리어", score: 0},
+            {breed: "웰시코기", score: 0},
+            {breed: "말티즈", score: 0},
+            {breed: "푸들", score: 0},
+            {breed: "불독", score: 0},
+            {breed: "포메라니안", score: 0},
+            {breed: "보더콜리", score: 0},
+            {breed: "시바", score: 0},
+            {breed: "진도", score: 0},
+            {breed: "치와와", score: 0},
+          ];
         },
         SET_MDTI_RESULT(state, data){
           state.mdtiResult.breed = data.breed;
           state.mdtiResult.accuracy = data.accuracy;
         },
-        SET_ERROR(state, data){
-          state.isError = data;
-        }
-
     },
     actions: {
         dogsData({ commit}, breed) {
@@ -165,8 +173,6 @@ export default new Vuex.Store({
           for(var i = 0; i < my_answers.length; i++ ){
             for(var j = 0; j < dogs_mdti.length; j++ ){
               if(!(my_answers[i] ^ dogs_mdti[j].AtQ[i])){
-                console.log(my_answers[i] + "    "+ dogs_mdti[j].AtQ[i])
-                console.log(mdti_score_board[j].breed)
                 mdti_score_board[j].score++;
               }
             }
