@@ -1,7 +1,5 @@
 <template>
   <v-container>
-    <!-- <v-overlay :value="overlay"></v-overlay> -->
-    <!-- <v-progress-circular indeterminate color="primary"></v-progress-circular> -->
     <h1 style="color: #494949">센터 아이들</h1>
     <p style="color: #ff5252">*생김새가 {{ breed }}인 믹스견도 표시됩니다.</p>
     <v-col v-for="(card, idx) in dogs" :key="idx" :cols="12">
@@ -40,6 +38,18 @@
         </v-card-title>
       </v-card>
     </v-col>
+    <v-dialog v-model="loading" persistent width="300">
+      <v-card color="pink accent-2" dark>
+        <v-card-text class="py-2">
+          잠시만 기다려주세요...
+          <v-progress-linear
+            indeterminate
+            color="white"
+            class="mb-0"
+          ></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -50,7 +60,9 @@ export default {
   computed: {
     ...mapState(["breed", "dogs", "dogId", "imgUrl"]),
   },
-  data: () => ({}),
+  data: () => ({
+    loading: false,
+  }),
   methods: {
     ...mapActions(["dogsData"]),
 
@@ -61,7 +73,15 @@ export default {
   },
   created() {
     this.dogsData(this.breed); //해당 카드를 클릭할때 vuex에 품종에 따른 강아지데이터 저장
-    this.$store.commit("SET_CURPAGE", "DogListPage");
+    this.$store.commit("SET_CURPAGE", "DogListPage"); //현재 페이지 설정
+    this.$vuetify.goTo(document.body.scrollTop); //상단으로 이동
+    this.loading = true;
+  },
+  watch: {
+    loading(val) {
+      if (!val) return;
+      setTimeout(() => (this.loading = false), 1500);
+    },
   },
 };
 </script>

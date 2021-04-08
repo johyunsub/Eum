@@ -4,7 +4,6 @@ import Home from './views/Home';
 import Dogs from './views/DogsPage';
 import DogList from './views/DogListPage';
 import DogDetail from './views/DogDetailPage';
-import Dbti from './views/DbtiPage';
 import Mdti from './views/MdtiPage';
 import MdtiResult from './views/MdtiResultPage';
 import MdtiStart from './views/MdtiStartPage';
@@ -43,11 +42,6 @@ const router = new VueRouter({
       path: '/mdtiResult',
       name: 'mdtiResult',
       component: MdtiResult,
-    },
-    {
-      path: '/dbti',
-      name: 'dbti',
-      component: Dbti,
     },
     {
       path: '/mdtiStart',
