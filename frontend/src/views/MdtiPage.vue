@@ -1,8 +1,10 @@
 <template>
   <v-container fill-height class="Mdti">
-    <!-- <div class="step-progress" :style="{ width: progress + '%' }"></div> -->
     <v-progress-linear
-      class="step-progress"
+      class="step-progress ml-6"
+      height="10"
+      rounded
+      color="deep-orange"
       :value="progress"
     ></v-progress-linear>
     <v-row justify="center" v-for="(question, idx) in questions" :key="idx">
@@ -45,7 +47,8 @@ export default {
 <style>
 .step-progress {
   position: sticky;
-  top: 10px;
+  top: 15px;
+  width: 300px;
 }
 .Mdti {
   background-image: url("../assets/MDTI/MDTI배경.png");

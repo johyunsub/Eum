@@ -1,14 +1,17 @@
 <template>
   <v-container fill-height class="MdtiResult">
-    <v-row class="resultImg pa-3">
+    <v-row class="py-13"></v-row>
+    <v-row class="resultImg pa-3" absolute>
       <v-col align="center" cols="12">
-        <h1>{{ mdtiResult.breed }}</h1>
+        <h1 style="color: #fa4659">{{ mdtiResult.breed }}</h1>
       </v-col>
       <v-img :src="resultImg()" height="300" max-width="350"> </v-img>
       <v-col align="center" cols="12">
-        <h1>추천지수: {{ mdtiResult.accuracy }}%</h1>
+        <h2 style="color: #2d4059">추천지수: {{ mdtiResult.accuracy }}%</h2>
       </v-col>
-      <v-btn :to="'/mdtiStart'">다시하기</v-btn>
+      <v-col align="center">
+        <v-btn :to="'/mdtiStart'" x-large color="#ff6464" dark>다시하기</v-btn>
+      </v-col>
     </v-row>
     <v-row> </v-row>
   </v-container>
@@ -63,7 +66,7 @@ export default {
   background-size: cover;
 }
 .resultImg {
-  position: absolute;
-  top: 170px;
+  /* position: absolute;
+  top: 170px; */
 }
 </style>

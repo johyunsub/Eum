@@ -5,8 +5,15 @@
     <v-col v-for="(card, idx) in dogs" :key="idx" :cols="12">
       <v-card elevation="0" @click="movePage(idx)">
         <v-img
-          :src="`data:image/jpeg;base64,${card.files[0].image}`"
+          v-if="card.files.length != 0"
+          :src="`data:image/jpg;base64,${card.files[0].image}`"
           height="280"
+        >
+        </v-img>
+        <v-img
+          v-if="card.files.length == 0"
+          src="../assets/Dogs/사진없을시.png"
+          height="330"
         >
         </v-img>
         <v-card-title class="">
@@ -48,11 +55,6 @@ export default {
     movePage: function (idx) {
       this.$store.commit("SET_DOG_LIST_IDX", idx); //품종리스트의 몇번째인지 idx set
       this.$router.push({ name: "dogDetail" });
-    },
-    converImg(data) {
-      var img = `data:/image/jpeg;base64, ${data}`;
-      console.log(img);
-      return img;
     },
   },
   created() {

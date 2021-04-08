@@ -34,5 +34,6 @@ export default {
 }
 #app {
   font-family: "Jal_Onuel";
+  background-color: #fff7ec;
 }
 </style>

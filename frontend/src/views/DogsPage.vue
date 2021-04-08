@@ -4,14 +4,16 @@
       <h1 style="color: #494949">품종 선택</h1>
       <p style="color: #ff5252">*입양하실 품종을 선택해주세요</p>
     </div>
+    <Spinner name="circle" color="red" />
     <v-container fluid>
       <v-row dense>
         <v-col v-for="card in cards" :key="card.title" :cols="6">
           <v-card elevation="1" @click="MovePage(card.title)">
             <v-img :src="card.src" height="150px"> </v-img>
-            <v-card-actions>
-              <v-card-text v-text="card.title"></v-card-text>
-            </v-card-actions>
+            <v-card-text
+              v-text="card.title"
+              style="color: #fd6f22; font-size: 18px; text-align: center"
+            ></v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -20,6 +22,9 @@
 </template>
 <script>
 import Dogs from "../assets/Dogs";
+import Spinner from "vue-spinkit";
+
+Vue.component("Spinner", Spinner);
 
 export default {
   data: () => ({
