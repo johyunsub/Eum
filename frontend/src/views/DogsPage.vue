@@ -4,7 +4,6 @@
       <h1 style="color: #494949">품종 선택</h1>
       <p style="color: #ff5252">*입양하실 품종을 선택해주세요</p>
     </div>
-    <Spinner name="circle" color="red" />
     <v-container fluid>
       <v-row dense>
         <v-col v-for="card in cards" :key="card.title" :cols="6">
@@ -22,9 +21,6 @@
 </template>
 <script>
 import Dogs from "../assets/Dogs";
-import Spinner from "vue-spinkit";
-
-Vue.component("Spinner", Spinner);
 
 export default {
   data: () => ({
