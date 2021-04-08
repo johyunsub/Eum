@@ -27,7 +27,9 @@ $ yarn install
  
 ### 2.backend server run
 > ###### application.yml 에서 database 설정 변경
+> ###### 빌드 & 실행
 ```bash
+$ ./gradlew build
 $ java -jar [filename].jar
 ```
 ### 3.frontserver server run
