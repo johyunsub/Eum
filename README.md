@@ -39,7 +39,7 @@ $ java -jar [filename].jar
 $ yarn run serve
 ```
 
-***          
+        
 ## classification dataset
 
 > ###### stanford dogs dataset 과 Tsinghua dogs dataset 에서 사진을 선별하고 진돗개 이미지를 추가해 135개의 개 종류에 대해 68,569 장의 이미지를 가진 전용 데이터셋을 만듬 
