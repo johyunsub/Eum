@@ -13,9 +13,9 @@ export default {
       datasets: [
         {
           backgroundColor: [
-            "rgba(87,130,187,1)",
-            "rgba(100,215,214,1)",
-            "rgba(196,175,240,1)",
+            "rgba(253,146,145,1)",
+            "rgba(245,252,158)",
+            "rgba(158,252,180,1)",
           ],
           data: [0, 0, 0],
           borderAlign: "center",
@@ -49,5 +49,6 @@ export default {
 .chartjs-render-monitor {
   height: 200px;
   text-align: center;
+  font-size: 30px;
 }
 </style>

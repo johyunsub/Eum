@@ -6,8 +6,9 @@
     <v-row>
       <v-col align="center">
         <v-btn :to="'/mdti'" x-large color="#ff6464" class="mb-3 pa-8" dark
-          >검사 시작하기</v-btn
-        >
+          >검사 시작하기
+          <font-awesome-icon class="ml-2" icon="feather-alt" size="lg" />
+        </v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -21,6 +22,9 @@ export default {
   }),
   created() {
     this.$store.commit("SET_CURPAGE", "MdtiStartPage");
+    this.$store.state.myAnswers = [false, false, false, false, false, false];
+    this.$store.state.myAnswersAccuracy = [0, 0, 0, 0, 0, 0];
+    this.$store.state.progress = 0;
   },
 };
 </script>

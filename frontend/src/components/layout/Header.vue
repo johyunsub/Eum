@@ -4,7 +4,9 @@
       <v-app-bar-nav-icon @click="movePage">
         <font-awesome-icon icon="chevron-left" size="lg" />
       </v-app-bar-nav-icon>
-      <v-toolbar-title @click="goHome"> 이음 </v-toolbar-title>
+      <v-toolbar-title @click="goHome">
+        <img src="../../assets/logo.png" height="50" class="mt-3"
+      /></v-toolbar-title>
       <v-spacer />
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
