@@ -4,6 +4,7 @@
 ### 백엔드 : 김성실, 지승윤, 이수민
 ### 인공지능 : 지서연
 
+![](https://user-images.githubusercontent.com/42338624/116279757-e1e04f00-a7c2-11eb-9abc-fd19db5f0e4c.gif)
 ## code 
 ### Requirements
 > * Node Package Module
