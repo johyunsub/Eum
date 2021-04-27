@@ -6,15 +6,20 @@
 
 
 
-<img src="https://user-images.githubusercontent.com/42338624/116283738-3259ab80-a7c7-11eb-9d47-19309641f75b.png" alt="logo" style="zoom: 33%;" />
+<img width="20%" src="https://user-images.githubusercontent.com/42338624/116283738-3259ab80-a7c7-11eb-9d47-19309641f75b.png" alt="logo" />
 
 ------
 
-#### |이음 :: MDTI(MyDogTypeIndecator)로 사용자의 성향에 맞는 반려견을 추천하고 Classification을 통해 유기견의 품종을 예상할 수 있게하고 입양을 도와주는 서비스 🐕‍🦺
+#### | 이음 :: MDTI(MyDogTypeIndecator)로 사용자의 성향에 맞는 반려견을 추천하고 Classification을 통해 유기견의 품종을 예상할 수 있게하고 입양을 도와주는 서비스 🐕‍🦺
+
 
 
 
 ![시연영상](https://user-images.githubusercontent.com/42338624/116279757-e1e04f00-a7c2-11eb-9abc-fd19db5f0e4c.gif)
+
+
+
+
 
 
 
@@ -38,11 +43,15 @@
 
 
 
+
+
 ### 📦 Requirements
 > * Node Package Module
 > * MySQL
 > * Python 3.6
 > * JDK 1.8
+
+
 
 
 
@@ -56,9 +65,11 @@ $ git https://lab.ssafy.com/s04-ai-speech-sub3/s04p23d103.git
 $ yarn install
 ```
 
+
 ### 1. database
 
 > ###### ieum.sql을 참조 하여 데이터 베이스 생성 
+
 
 ### 2. backend server run
 > ###### application.yml 에서 database 설정 변경
@@ -67,12 +78,15 @@ $ yarn install
 $ ./gradlew build
 $ java -jar [filename].jar
 ```
+
+
 ### 3. frontserver server run
 > ###### backend server 에 맞춰 api 요청 주소 변경
 
 ```bash
 $ yarn run serve
 ```
+
 
 
 
@@ -89,6 +103,9 @@ $ yarn run serve
 
 
 ------
+
+
+
 
 
 
@@ -172,6 +189,8 @@ $ yarn run serve
 
 
 
+
+
 ### 🐶 품종별 Question's Key
 
 > 품종에 따라 질문에 해당되는 key값
@@ -211,6 +230,8 @@ dogsMdti: [     //MDTI에서 활용되는 품종에따른 질문에따른 답(An
             {breed: "치와와", AtQ: [false, false, true, true, false, false] },
         ],
 ```
+
+
 
 
 
