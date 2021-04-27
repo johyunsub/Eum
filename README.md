@@ -1,18 +1,52 @@
-# 🐶이음 : classification을 통해 쉽고 편하게 나에게 맞는 유기견 입양을 도와주는 서비스 
-## 역할 
-### 프론트 : 조현섭
-### 백엔드 : 김성실, 지승윤, 이수민
-### 인공지능 : 지서연
+> SSAFY Team 3 
+>
+> 인공지능 PTJ
 
-![](https://user-images.githubusercontent.com/42338624/116279757-e1e04f00-a7c2-11eb-9abc-fd19db5f0e4c.gif)
-## code 
-### Requirements
+# 🐶 이음 (Eum)
+
+
+
+<img src="https://user-images.githubusercontent.com/42338624/116283738-3259ab80-a7c7-11eb-9d47-19309641f75b.png" alt="logo" style="zoom: 67%;" />
+
+------
+
+#### |이음 :: MDTI(MyDogTypeIndecator)로 사용자의 성향에 맞는 반려견을 추천하고 Classification을 통해 유기견의 품종을 예상할 수 있게하고 입양을 도와주는 서비스 🐕‍🦺
+
+
+
+![시연영상](https://user-images.githubusercontent.com/42338624/116279757-e1e04f00-a7c2-11eb-9abc-fd19db5f0e4c.gif)
+
+
+
+
+
+## 🔧 Architecture
+
+**Entitiy Relationship Diagram**
+
+![ERD](산출물/ERD.png)
+
+
+
+**Sequence Diagrams**
+
+![SD](산출물/이음_시퀀스다이어그램.png)
+
+
+
+------
+
+
+
+### 📦 Requirements
 > * Node Package Module
 > * MySQL
 > * Python 3.6
 > * JDK 1.8
 
-## install
+
+
+## 📚 install
 
 ```bash
 $ git https://lab.ssafy.com/s04-ai-speech-sub3/s04p23d103.git
@@ -22,35 +56,47 @@ $ git https://lab.ssafy.com/s04-ai-speech-sub3/s04p23d103.git
 $ yarn install
 ```
 
-### 1.database
+### 1. database
 
 > ###### ieum.sql을 참조 하여 데이터 베이스 생성 
- 
-### 2.backend server run
+
+### 2. backend server run
 > ###### application.yml 에서 database 설정 변경
 > ###### 빌드 & 실행
 ```bash
 $ ./gradlew build
 $ java -jar [filename].jar
 ```
-### 3.frontserver server run
+### 3. frontserver server run
 > ###### backend server 에 맞춰 api 요청 주소 변경
 
 ```bash
 $ yarn run serve
 ```
 
-        
-## classification dataset
+
+
+## 🔬 classification dataset
 
 > ###### stanford dogs dataset 과 Tsinghua dogs dataset 에서 사진을 선별하고 진돗개 이미지를 추가해 135개의 개 종류에 대해 68,569 장의 이미지를 가진 전용 데이터셋을 만듬 
 
 ## classification 학습 모델 
 
 > ###### ImageNet으로 pre-trained 된 Inception V1 모델을 사용
- 
 
-# 📝 MDTI Solution
+
+
+
+
+------
+
+
+
+## 🎨 Feature
+
+
+
+### 📝 MDTI Solution
 
 > MDTI(My Dog Type  Indicator)검사의 채점방식을 어떻게 처리하였는 지에 대한 설명입니다.
 
@@ -219,3 +265,18 @@ calculateResult({state, commit}){
         }
 ```
 
+
+
+
+
+------
+
+
+
+## 🏓 Contributer
+
+#### 프론트 : 		조현섭
+
+#### 백엔드 : 		김성실, 지승윤, 이수민
+
+#### 인공지능 : 	지서연
