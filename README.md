@@ -10,7 +10,6 @@
 
 ------
 
-<br />
 
 #### | 이음 :: MDTI(MyDogTypeIndecator)로 사용자의 성향에 맞는 반려견을 추천하고 Classification을 통해 유기견의 품종을 예상할 수 있게하고 입양을 도와주는 서비스 🐕‍🦺
 
@@ -32,15 +31,13 @@
 
 **Entitiy Relationship Diagram**
 
-![ERD](산출물/ERD.png)
-
+<img width="80%" src="./산출물/ERD.png" />
 
 <br />
 
 **Sequence Diagrams**
 
-![SD](산출물/이음_시퀀스다이어그램.png)
-
+<img width="80%" src="./산출물/이음_시퀀스다이어그램.png" />
 
 
 ------
