@@ -114,18 +114,17 @@ $ yarn run serve
 
 <br />
 
-## 🎨 Feature
 
 
 <br />
 
-### 📝 MDTI Solution
+## 📝 MDTI Solution
 
 > MDTI(My Dog Type  Indicator)검사의 채점방식을 어떻게 처리하였는 지에 대한 설명입니다.
 
 
 
-#### 📃 MDTI Questionnaire
+### 📃 MDTI Questionnaire
 
 > MDTI검사의 질문과 선택지를 표로 나타내었을 때와 구현한 코드입니다.
 
@@ -198,7 +197,7 @@ $ yarn run serve
 
 <br />
 
-#### 🐶 품종별 Question's Key
+### 🐶 품종별 Question's Key
 
 > 품종에 따라 질문에 해당되는 key값
 >
@@ -243,7 +242,7 @@ dogsMdti: [     //MDTI에서 활용되는 품종에따른 질문에따른 답(An
 
 <br />
 
-#### 📊 ScoreBoard
+### 📊 ScoreBoard
 
 > 품종에 따라 점수를 매길 수 있는 점수판입니다. 점수가 가장 높을 수록 설문자와 적합한 품종입니다.
 
@@ -272,7 +271,7 @@ mdtiScoreboard: [   //MDTI에서 작성된 설문을 바탕으로 유저와 가�
 
 <br />
 
-#### 💯MDTI 채점방식
+### 💯MDTI 채점방식
 
 > `MDTI Questionnaire`의 선택지에서 고른 Key값과  `품종별 Question's Key`와 비교하여 일치하면 해당되는 품종들을 `ScoreBoard`에 score를 1씩 증가시킵니다. 문제수를 거듭할 수록 설문자에게 맞는 품종의 score가 많이 쌓이게 됩니다. 그리고 score를 기준으로 내림차순으로 정렬하여 앞쪽부터 순위 별로 설문자에게 추천됩니다.
 
@@ -299,9 +298,9 @@ calculateResult({state, commit}){
 
 <br />
 
-### 🐕 품종별 입양하기
+## 🐕 품종별 입양하기
 
-#### 🐾 품종 선택
+### 🐾 품종 선택
 
 > 모든 유기견의 정보는 [종합유기견 보호센터](https://www.zooseyo.or.kr/)에서 크롤링하므로 실제 입양을 기다리는 유기견들을 보여준다
 > 
@@ -309,7 +308,7 @@ calculateResult({state, commit}){
 <img width="20%" src="./산출물/품종별페이지.png" />
 <br />
 
-#### 🔎 상세페이지
+### 🔎 상세페이지
 
 > BSP지수 (Breed Specific Percent) 
 >
@@ -318,7 +317,7 @@ calculateResult({state, commit}){
 <img width="20%" src="./산출물/상세페이지.png" />
 <br />
 
-#### 👨‍👧‍👦 입양하기
+### 👨‍👧‍👦 입양하기
 
 > 입양은 해당 유기견을 관리하는 유기견센터 페이지로 이동하여 이루어진다
 > 
